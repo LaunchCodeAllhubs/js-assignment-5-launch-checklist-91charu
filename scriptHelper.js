@@ -40,7 +40,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let fuelStatus = document.getElementById("fuelStatus");
     let cargoStatus = document.getElementById("cargoStatus");
     let launchStatus = document.getElementById("launchStatus");
-
+    let list = document.getElementById("faultyItems");
+    list.style.visibility = 'hidden';
     if ((Number(fuelLevel) >= 10000) && (Number(cargoLevel) <= 10000)){
         list.style.visibility = 'visible';
         launchStatus.style.color = 'rgb(65, 159, 106)';

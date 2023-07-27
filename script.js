@@ -37,7 +37,7 @@ window.addEventListener("load", function() {
     });
     let list = document.getElementById("faultyItems");
     list.style.visibility = 'hidden';
-});
+
    let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
    let listedPlanetsResponse=myFetch();
@@ -58,5 +58,8 @@ window.addEventListener("load", function() {
            missionDestination.image
        );
     })
-
+    .catch(function(error) {
+        console.error("Error fetching planet data:", error);
+    });
+});
    

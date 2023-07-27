@@ -3,21 +3,21 @@
 
 
 
-function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
+function addDestinationInfo(document, name, diameter, star, distance, moons, image) {
     // Here is the HTML formatting for our mission target div.
-    let missionTarget = document.getElementById("missionTarget");
-    missionTarget.innerHTML = `
-                    <h2>Mission Destination</h2>
-    <ol>
-        <li>Name: ${name} </li>
-        <li>Diameter: ${diameter} </li>
-        <li>Star: ${star}</li>
-        <li>Distance from Earth: ${distance} </li>
-        <li>Number of Moons: ${moons} </li>
-    </ol>
-    <img src="${imageUrl}"> `
+    let missionTarget = document.getElementById('missionTarget');
+   missionTarget.innerHTML = `
+                 <h2>Mission Destination</h2>
+                 <ol>
+                     <li>Name: ${name} </li>
+                     <li>Diameter: ${diameter} </li>
+                     <li>Star: ${star}</li>
+                     <li>Distance from Earth: ${distance}</li>
+                     <li>Number of Moons: ${moons}</li>
+                 </ol>
+                 <img src="${image}" alt="Mission Destination Image">
+    `;
  }
-
 function validateInput(testInput) {
     if (testInput.trim() === "") 
     {

@@ -33,8 +33,9 @@ window.addEventListener("load", function() {
             fuellevelInput.value,
             cargomassInput.value
           );
-          event.preventDefault();
+          //event.preventDefault();
     });
+    let list = document.getElementById("faultyItems");
     list.style.visibility = 'hidden';
 });
    let listedPlanets;

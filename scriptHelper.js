@@ -3,7 +3,7 @@
 
 
 
-function addDestinationInfo(document, name, diameter, star, distance, moons, image) {
+function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
     let missionTarget = document.getElementById('missionTarget');
     missionTarget.innerHTML = `
@@ -15,7 +15,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
             <li>Distance from Earth: ${distance}</li>
             <li>Number of Moons: ${moons}</li>
         </ol>
-        <img src="${image}" alt="Mission Destination Image"/>
+        <img src="${imageUrl}" alt="Mission Destination Image">
     `;
 }
 

@@ -35,6 +35,7 @@ window.addEventListener("load", function() {
           );
           event.preventDefault();
     });
+    list.style.visibility = 'hidden';
 });
    let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()

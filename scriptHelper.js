@@ -1,7 +1,24 @@
 // Write your helper functions here!
 //require('isomorphic-fetch');
 
-async function myFetch() {
+
+
+function addDestinationInfo(document, name, diameter, star, distance, moons, image) {
+    // Here is the HTML formatting for our mission target div.
+    let missionTarget = document.getElementById('missionTarget');
+   missionTarget.innerHTML = `
+                 <h2>Mission Destination</h2>
+                 <ol>
+                     <li>Name: ${name} </li>
+                     <li>Diameter: ${diameter} </li>
+                     <li>Star: ${star}</li>
+                     <li>Distance from Earth: ${distance}</li>
+                     <li>Number of Moons: ${moons}</li>
+                 </ol>
+                 <img src="${image}" alt="Mission Destination Image">
+    `;
+ }
+ async function myFetch() {
     try {
        const response = await fetch("https://handlers.education.launchcode.org/static/planets.json");
        const planetsReturned = await response.json();
@@ -26,21 +43,6 @@ async function myFetch() {
     let randomIndex=Math.floor(Math.random()*planets.length);
     return planets[randomIndex];
 }
-function addDestinationInfo(document, name, diameter, star, distance, moons, image) {
-    // Here is the HTML formatting for our mission target div.
-    let missionTarget = document.getElementById('missionTarget');
-   missionTarget.innerHTML = `
-                 <h2>Mission Destination</h2>
-                 <ol>
-                     <li>Name: ${name} </li>
-                     <li>Diameter: ${diameter} </li>
-                     <li>Star: ${star}</li>
-                     <li>Distance from Earth: ${distance}</li>
-                     <li>Number of Moons: ${moons}</li>
-                 </ol>
-                 <img src="${image}" alt="Mission Destination Image">
-    `;
- }
 
 function validateInput(testInput) {
     if (testInput.trim() === "") 

@@ -1,20 +1,36 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-   // Here is the HTML formatting for our mission target div.
-   /*
-                <h2>Mission Destination</h2>
-                <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
-                    <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
-                </ol>
-                <img src="">
-   */
+async function myFetch() {
+    try {
+       const response = await fetch("https://handlers.education.launchcode.org/static/planets.json");
+       const planetsReturned = await response.json();
+       return planetsReturned;
+    } catch (error) {
+       console.error("Error fetching data:", error);
+       return; 
+    }
+ }
+
+ function pickPlanet(planets) {
+    let randomIndex=Math.floor(Math.random()*planets.length);
+    return planets[randomIndex];
 }
+function addDestinationInfo(document, name, diameter, star, distance, moons, image) {
+    // Here is the HTML formatting for our mission target div.
+    let missionTarget = document.getElementById('missionTarget');
+   missionTarget.innerHTML = `
+                 <h2>Mission Destination</h2>
+                 <ol>
+                     <li>Name: ${name} </li>
+                     <li>Diameter: ${diameter} </li>
+                     <li>Star: ${star}</li>
+                     <li>Distance from Earth: ${distance}</li>
+                     <li>Number of Moons: ${moons}</li>
+                 </ol>
+                 <img src="${image}" alt="Mission Destination Image">
+    `;
+ }
 
 function validateInput(testInput) {
     if (testInput.trim() === "") 
@@ -68,21 +84,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
-}
-
-
-
-
-async function myFetch() {
-    let planetsReturned;
-
-    planetsReturned = await fetch().then( function(response) {
-        });
-
-    return planetsReturned;
-}
-
-function pickPlanet(planets) {
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;

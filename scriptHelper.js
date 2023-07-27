@@ -96,8 +96,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 }
 
-/*module.exports.addDestinationInfo = addDestinationInfo;
+module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
 module.exports.pickPlanet = pickPlanet; 
-module.exports.myFetch = myFetch;*/
+module.exports.myFetch = myFetch;

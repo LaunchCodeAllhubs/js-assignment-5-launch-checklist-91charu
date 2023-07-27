@@ -15,7 +15,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         <li>Distance from Earth: ${distance} </li>
         <li>Number of Moons: ${moons} </li>
     </ol>
-    <img src="${imageUrl}"/> `
+    <img src="${imageUrl}"> `
  }
 
 function validateInput(testInput) {
@@ -83,7 +83,7 @@ async function myFetch() {
  }
 
  function pickPlanet(planets) {
-    if (planets.length === 0) {
+    /*if (planets.length === 0) {
         return {
           name: "Unknown",
           diameter: "Unknown",
@@ -92,7 +92,7 @@ async function myFetch() {
           moons: "Unknown",
           image: "https://via.placeholder.com/250",
         };
-      }
+      }*/
     let randomIndex=Math.floor(Math.random()*planets.length);
     return planets[randomIndex];
 }

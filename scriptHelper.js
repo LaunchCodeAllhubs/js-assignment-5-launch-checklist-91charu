@@ -1,5 +1,5 @@
 // Write your helper functions here!
-require('isomorphic-fetch');
+//require('isomorphic-fetch');
 
 async function myFetch() {
     try {
@@ -8,11 +8,21 @@ async function myFetch() {
        return planetsReturned;
     } catch (error) {
        console.error("Error fetching data:", error);
-       return; 
+       return []; 
     }
  }
 
  function pickPlanet(planets) {
+    if (planets.length === 0) {
+        return {
+          name: "Unknown",
+          diameter: "Unknown",
+          star: "Unknown",
+          distance: "Unknown",
+          moons: "Unknown",
+          image: "https://via.placeholder.com/250",
+        };
+      }
     let randomIndex=Math.floor(Math.random()*planets.length);
     return planets[randomIndex];
 }

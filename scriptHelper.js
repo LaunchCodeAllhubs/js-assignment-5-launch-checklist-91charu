@@ -18,31 +18,6 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         <img src="${image}" alt="Mission Destination Image">
     `;
 }
- async function myFetch() {
-    try {
-       const response = await fetch("https://handlers.education.launchcode.org/static/planets.json");
-       const planetsReturned = await response.json();
-       return planetsReturned;
-    } catch (error) {
-       console.error("Error fetching data:", error);
-       return []; 
-    }
- }
-
- function pickPlanet(planets) {
-    if (planets.length === 0) {
-        return {
-          name: "Unknown",
-          diameter: "Unknown",
-          star: "Unknown",
-          distance: "Unknown",
-          moons: "Unknown",
-          image: "https://via.placeholder.com/250",
-        };
-      }
-    let randomIndex=Math.floor(Math.random()*planets.length);
-    return planets[randomIndex];
-}
 
 function validateInput(testInput) {
     if (testInput.trim() === "") 
@@ -97,7 +72,31 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
 }
+async function myFetch() {
+    try {
+       const response = await fetch("https://handlers.education.launchcode.org/static/planets.json");
+       const planetsReturned = await response.json();
+       return planetsReturned;
+    } catch (error) {
+       console.error("Error fetching data:", error);
+       return []; 
+    }
+ }
 
+ function pickPlanet(planets) {
+    if (planets.length === 0) {
+        return {
+          name: "Unknown",
+          diameter: "Unknown",
+          star: "Unknown",
+          distance: "Unknown",
+          moons: "Unknown",
+          image: "https://via.placeholder.com/250",
+        };
+      }
+    let randomIndex=Math.floor(Math.random()*planets.length);
+    return planets[randomIndex];
+}
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
